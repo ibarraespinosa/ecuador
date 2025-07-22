@@ -1,0 +1,949 @@
+%  LaTeX support: latex@mdpi.com
+%  For support, please attach all files needed for compiling as well as the log file, and specify your operating system, LaTeX version, and LaTeX editor.
+
+%=================================================================
+% pandoc conditionals added to preserve backwards compatibility with previous versions of rticles
+
+\documentclass[atmosphere,article,submit,moreauthors,pdftex]{Definitions/mdpi}
+
+
+%% Some pieces required from the pandoc template
+\setlist[itemize]{leftmargin=*,labelsep=5.8mm}
+\setlist[enumerate]{leftmargin=*,labelsep=4.9mm}
+
+
+%--------------------
+% Class Options:
+%--------------------
+
+%---------
+% article
+%---------
+% The default type of manuscript is "article", but can be replaced by:
+% abstract, addendum, article, book, bookreview, briefreport, casereport, comment, commentary, communication, conferenceproceedings, correction, conferencereport, entry, expressionofconcern, extendedabstract, datadescriptor, editorial, essay, erratum, hypothesis, interestingimage, obituary, opinion, projectreport, reply, retraction, review, perspective, protocol, shortnote, studyprotocol, systematicreview, supfile, technicalnote, viewpoint, guidelines, registeredreport, tutorial
+% supfile = supplementary materials
+
+%----------
+% submit
+%----------
+% The class option "submit" will be changed to "accept" by the Editorial Office when the paper is accepted. This will only make changes to the frontpage (e.g., the logo of the journal will get visible), the headings, and the copyright information. Also, line numbering will be removed. Journal info and pagination for accepted papers will also be assigned by the Editorial Office.
+
+%------------------
+% moreauthors
+%------------------
+% If there is only one author the class option oneauthor should be used. Otherwise use the class option moreauthors.
+
+%---------
+% pdftex
+%---------
+% The option pdftex is for use with pdfLaTeX. Remove "pdftex" for (1) compiling with LaTeX & dvi2pdf (if eps figures are used) or for (2) compiling with XeLaTeX.
+
+%=================================================================
+% MDPI internal commands - do not modify
+\firstpage{1}
+\makeatletter
+\setcounter{page}{\@firstpage}
+\makeatother
+\pubvolume{1}
+\issuenum{1}
+\articlenumber{0}
+\pubyear{2023}
+\copyrightyear{2023}
+%\externaleditor{Academic Editor: Firstname Lastname}
+\datereceived{ }
+\daterevised{ } % Comment out if no revised date
+\dateaccepted{ }
+\datepublished{ }
+%\datecorrected{} % For corrected papers: "Corrected: XXX" date in the original paper.
+%\dateretracted{} % For corrected papers: "Retracted: XXX" date in the original paper.
+\hreflink{https://doi.org/} % If needed use \linebreak
+%\doinum{}
+%\pdfoutput=1 % Uncommented for upload to arXiv.org
+
+%=================================================================
+% Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, float, amsmath, amssymb, lineno, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, colortbl, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, array, tabularx, pbox, ragged2e, tocloft, marginnote, marginfix, enotez, amsthm, natbib, hyperref, cleveref, scrextend, url, geometry, newfloat, caption, draftwatermark, seqsplit
+% cleveref: load \crefname definitions after \begin{document}
+
+%=================================================================
+% Please use the following mathematics environments: Theorem, Lemma, Corollary, Proposition, Characterization, Property, Problem, Example, ExamplesandDefinitions, Hypothesis, Remark, Definition, Notation, Assumption
+%% For proofs, please use the proof environment (the amsthm package is loaded by the MDPI class).
+
+%=================================================================
+% Full title of the paper (Capitalized)
+\Title{Quantifying the Impact of High Emitters on Vehicle CO Emissions
+An Analysis of Ecuador's Inspection and Maintenance Program}
+
+% MDPI internal command: Title for citation in the left column
+\TitleCitation{Quantifying the Impact of High Emitters on Vehicle CO
+Emissions An Analysis of Ecuador's Inspection and Maintenance Program}
+
+% Author Orchid ID: enter ID or remove command
+%\newcommand{\orcidauthorA}{0000-0000-0000-000X} % Add \orcidA{} behind the author's name
+%\newcommand{\orcidauthorB}{0000-0000-0000-000X} % Add \orcidB{} behind the author's name
+
+
+% Authors, for the paper (add full first names)
+\Author{Sergio
+Ibarra-Espinosa$^{1,2*}$\href{https://orcid.org/0000-0002-3162-1905}
+{\orcidicon}, Zamir
+Mera$^{3,4}$\href{https://orcid.org/0000-0003-2897-8847}
+{\orcidicon}, Karl
+Ropkins$^{5}$\href{https://orcid.org/0000-0002-0294-6997}
+{\orcidicon}}
+
+
+%\longauthorlist{yes}
+
+
+% MDPI internal command: Authors, for metadata in PDF
+\AuthorNames{Sergio Ibarra-Espinosa, Zamir Mera, Karl Ropkins}
+
+% MDPI internal command: Authors, for citation in the left column
+
+% Affiliations / Addresses (Add [1] after \address if there is only one affiliation.)
+\address{%
+$^{1}$ \quad Cooperative Institute for Research in Environmental
+Sciences, University of Colorado-Boulder, Boulder, CO, United
+States; \href{mailto:sergio.ibarraespinosa@colorado.edu}{\nolinkurl{sergio.ibarraespinosa@colorado.edu}}\\
+$^{2}$ \quad NOAA Global Monitoring Laboratory Boulder, CO, United
+States; \\
+$^{3}$ \quad Faculty of Applied Sciences, Universidad Técnica del Norte,
+Ibarra, Ecuador; \\
+$^{4}$ \quad Fundación Alma Verde, Ibarra, Ecuador; \\
+$^{5}$ \quad Institute for Transport Studies, University of Leeds,
+United Kingdom; \\
+}
+
+% Contact information of the corresponding author
+\corres{Correspondence: \href{mailto:sergio.ibarraespinosa@colorado.edu}{\nolinkurl{sergio.ibarraespinosa@colorado.edu}}}
+
+% Current address and/or shared authorship
+
+
+
+
+
+
+
+
+% The commands \thirdnote{} till \eighthnote{} are available for further notes
+
+% Simple summary
+\simplesumm{A concise summary of the paper's findings on high emitters
+and I/M programs.}
+
+%\conference{} % An extended version of a conference paper
+
+% Abstract (Do not insert blank lines, i.e. \\)
+\abstract{Vehicular emissions are a primary contributor to urban air
+pollution, and inspection and maintenance (I/M) programs are key
+strategies to mitigate this impact. However, the effectiveness of these
+programs can be limited by ``high emitters''---vehicles that fail
+emission standards but continue to circulate until their next
+inspection. This study quantifies and compares vehicular CO emissions in
+Quito, Ecuador, under two distinct scenarios using the VEIN (Vehicular
+Emissions Inventory) model. The first scenario assumes all vehicles
+comply with average emission factors, representing a baseline without
+explicit consideration of high emitters. The second scenario explicitly
+accounts for the significant contribution of high emitters that pass the
+annual inspection and remain in circulation. Our findings highlight the
+substantial difference in total emissions between these scenarios,
+emphasizing the critical role of undetected high emitters in inflating
+overall pollution levels. This understanding can inform the design of
+more effective I/M programs and enhance air quality management
+strategies in Quito and other similar urban environments.}
+
+
+% Keywords
+\keyword{Vehicular Emissions; Inspection and Maintenance (I/M) Program;
+High Emitters; VEIN Model; Air Quality; Ecuador; CO Emissions; Emission
+Inventory.}
+
+% The fields PACS, MSC, and JEL may be left empty or commented out if not applicable
+%\PACS{J0101}
+%\MSC{}
+%\JEL{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Diversity
+%\LSID{\url{http://}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Applied Sciences
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Data
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Toxins
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Encyclopedia
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Only for the journal Advances in Respiratory Medicine
+%\addhighlights{yes}
+%\renewcommand{\addhighlights}{%
+
+%\noindent This is an obligatory section in “Advances in Respiratory Medicine”, whose goal is to increase the discoverability and readability of the article via search engines and other scholars. Highlights should not be a copy of the abstract, but a simple text allowing the reader to quickly and simplified find out what the article is about and what can be cited from it. Each of these parts should be devoted up to 2~bullet points.\vspace{3pt}\\
+%\textbf{What are the main findings?}
+% \begin{itemize}[labelsep=2.5mm,topsep=-3pt]
+% \item First bullet.
+% \item Second bullet.
+% \end{itemize}\vspace{3pt}
+%\textbf{What is the implication of the main finding?}
+% \begin{itemize}[labelsep=2.5mm,topsep=-3pt]
+% \item First bullet.
+% \item Second bullet.
+% \end{itemize}
+%}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Pandoc syntax highlighting
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+
+% tightlist command for lists without linebreak
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+\usepackage{longtable}
+
+\begin{document}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introduction}\label{introduction}
+
+ntroduction: * Background: Discuss the significance of vehicular
+emissions in urban air quality, focusing on pollutants like CO. Mention
+the context of Quito, Ecuador, as a developing city with specific air
+quality challenges. * Problem Statement: Explain that while I/M programs
+are designed to reduce emissions, their effectiveness can be compromised
+by vehicles that fail emission tests but remain in use until the next
+inspection. These ``high emitters'' can disproportionately contribute to
+overall pollution. * Literature Review: * Discuss existing literature on
+vehicular emission inventories and modeling, highlighting the role of
+the VEIN model (Ibarra-Espinosa et al., 2018). * Review studies on the
+effectiveness of I/M programs globally and in Latin America. * Cite
+research on the concept and impact of ``high emitters'' or ``gross
+polluters.'' * Research Gap: Clearly articulate that a detailed
+quantification of the impact of high emitters on total emissions,
+specifically within the context of Quito's I/M program, is lacking. *
+Objectives: * To estimate CO emissions from the gasoline vehicle fleet
+in Quito using the VEIN model. * To quantify the difference in emissions
+between a scenario that assumes uniform emission factors (without
+explicit high emitters) and a scenario that accounts for high emitters
+that pass the annual inspection. * To assess the potential impact of
+improving the detection and removal of high emitters within Quito's I/M
+program. * Structure of the Paper: Briefly outline the sections of the
+manuscript.
+
+\section{Materials and Methods:}\label{materials-and-methods}
+
+\begin{itemize}
+\tightlist
+\item
+  Study Area: Describe Quito, Ecuador, including its geographical
+  characteristics, typical traffic patterns, and existing I/M program
+  details (e.g., frequency of inspection, detection methods).
+\item
+  Information about Ecuador's I/M program can be found in sources like
+  SGS Ecuador and general government regulations.
+\item
+  VEIN Model Description:
+\item
+  Explain the VEIN R package and its suitability for creating
+  high-resolution, street-level emission inventories.
+\item
+  Detail the specific functions used from VEIN, particularly ef\_whe
+  (emission factor with high emitters) if applicable, or how you adapted
+  the model to incorporate your high-emitter calculation.
+\item
+  Mention the input data required by VEIN (e.g., vehicle fleet
+  composition, age, fuel type, pollutant, emission type, subtype).
+\item
+  Data Sources:
+\item
+  Vehicle Fleet Data: Specify how you obtained data on vehicle types
+  (e.g., gasoline cars), their distribution, age, and size in Quito.
+\item
+  Emission Factors:
+\item
+  Scenario 1 (Without High Emitters): Describe the average emission
+  factors used for compliant vehicles (e.g., 0.1 g CO/km as in your
+  example). Specify the source of these factors (e.g., standard emission
+  databases, local studies).
+\item
+  Scenario 2 (With High Emitters):
+\item
+  Explain how you defined ``high emitters'' -- e.g., a multiplier of the
+  average emission factor (e.g., 1 g CO/km in your example).
+\item
+  Detail how you determined the proportion of ``approving'' (normal
+  emitters) and ``reproving'' (high emitters) vehicles based on the
+  annual inspection data (e.g., 80\% approval, 20\% reproval).
+\item
+  Explain how these proportions and factors are used to calculate the
+  weighted emission factors (as per your example: 0.80 * 0.1 g/km + 0.20
+  * 1 g/km = 0.28 g/km).
+\item
+  Activity Data: Describe how you obtained or estimated vehicle activity
+  (e.g., kilometers driven per year, per vehicle type). This is crucial
+  for converting emission factors to total emissions.
+\item
+  Pollutants and Emission Types: Specify which pollutants (CO, as per
+  your example) and emission types (e.g., exhaust) are included in the
+  analysis.
+\item
+  Methodology for High Emitter Calculation:
+\item
+  Provide a detailed explanation of your approach to calculating
+  weighted emission factors, using the provided example as a basis.
+\item
+  Explain how these weighted factors are applied within the VEIN
+  framework.
+\item
+  Describe how you simulate the ``circulation until measurement'' aspect
+  -- i.e., that reproving vehicles continue to emit at their higher
+  rates until their annual inspection.
+\item
+  Data Analysis and Modeling:
+\item
+  Describe how you integrated the calculated emission factors and
+  activity data into VEIN to produce emission inventories for both
+  scenarios.
+\item
+  Specify the temporal and spatial resolution of your inventory (e.g.,
+  hourly, street-level).
+\item
+  Comparison Metrics: Define how you will compare the two scenarios
+  (e.g., total CO emissions, difference in emissions as a percentage,
+  contribution of high emitters to total emissions).
+\end{itemize}
+
+\section{Results:}\label{results}
+
+\begin{itemize}
+\tightlist
+\item
+  Vehicle Fleet Characterization: Present a summary of the vehicle fleet
+  used in the analysis for Quito (e.g., breakdown by age, type, fuel).
+\item
+  Emission Factors: Show the calculated weighted emission factors for
+  both scenarios (average vs.~high-emitter accounted).
+\item
+  Total CO Emissions:
+\item
+  Present the estimated total CO emissions for Quito under Scenario 1
+  (without explicit high emitters).
+\item
+  Present the estimated total CO emissions for Quito under Scenario 2
+  (with explicit high emitters).
+\item
+  Clearly show the difference between the two scenarios.
+\item
+  Contribution of High Emitters: Quantify the percentage contribution of
+  the ``reproving'' (high emitter) vehicles to the total emissions in
+  Scenario 2.
+\item
+  Spatial/Temporal Distribution (Optional but Recommended): If VEIN
+  allows, show how emissions differ spatially (e.g., hotspots) or
+  temporally between the two scenarios.
+\item
+  Statistical Significance (if applicable): If you perform any
+  statistical tests to compare the scenarios.
+\end{itemize}
+
+\section{Discussion:}\label{discussion}
+
+\begin{itemize}
+\tightlist
+\item
+  Interpretation of Findings:
+\item
+  Discuss the magnitude of the difference in emissions between the two
+  scenarios. Was it as expected?
+\item
+  Explain why high emitters have such a significant impact, linking it
+  to their higher emission rates.
+\item
+  Relate your findings to the effectiveness of Quito's current I/M
+  program. Does the annual inspection adequately capture and remove high
+  emitters?
+\item
+  Implications for I/M Programs:
+\item
+  Discuss how the findings inform policy decisions related to I/M
+  programs, such as the frequency of testing, the stringency of test
+  limits, and the enforcement mechanisms.
+\item
+  Consider the potential benefits of more frequent or more sensitive
+  emission testing.
+\item
+  Discuss the economic and environmental trade-offs.
+\item
+  VEIN Model Application: Comment on the utility of the VEIN model for
+  this type of analysis, particularly its ability to handle detailed
+  emissions calculations.
+\item
+  Limitations:
+\item
+  Acknowledge any limitations in the data (e.g., accuracy of fleet data,
+  activity data, emission factors).
+\item
+  Discuss the assumptions made (e.g., constant emission rates for high
+  emitters until inspection, homogeneity of vehicle population within
+  categories).
+\item
+  Mention any simplifications in the I/M program representation.
+\item
+  Comparison with Previous Studies: Place your findings in the context
+  of existing research on vehicular emissions and I/M programs.
+\item
+  Future Research: Suggest areas for further investigation (e.g.,
+  including other pollutants, different vehicle types, other cities, the
+  impact of different I/M strategies).
+\end{itemize}
+
+\section{Conclusions:}\label{conclusions}
+
+\begin{itemize}
+\tightlist
+\item
+  Summarize the main findings regarding the impact of high emitters on
+  CO emissions in Quito.
+\item
+  Reiterate the importance of effectively identifying and addressing
+  high emitters in I/M programs.
+\item
+  Provide a concise policy recommendation for improving air quality
+  management in Quito based on your results.
+\end{itemize}
+
+This Rmd-skeleton uses the mdpi Latex template published 2023-03-25.
+However, the official template gets more frequently updated than the
+\textbf{rticles} package. Therefore, please make sure prior to paper
+submission, that you're using the most recent .cls, .tex and .bst files
+(available \href{http://www.mdpi.com/authors/latex}{here}).
+
+\section{Article Header Information}\label{article-header-information}
+
+The YAML header includes information needed mainly for formatting the
+front and back matter of the article. Required elements include:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{title}\KeywordTok{:}\AttributeTok{ Title of the paper}
+\FunctionTok{author}\KeywordTok{:}
+\AttributeTok{  }\KeywordTok{{-}}\AttributeTok{ }\FunctionTok{name}\KeywordTok{:}\AttributeTok{ first and last name}
+\FunctionTok{    affil}\KeywordTok{: }\CharTok{|}
+\NormalTok{      One or more comma seperated numbers corresponding to affilitation}
+\NormalTok{      and one or more  comma seperated symbols corresponding }
+\NormalTok{      optional notes.}
+\AttributeTok{    }\FunctionTok{orcid}\KeywordTok{:}\AttributeTok{ optional orcid number}
+\FunctionTok{affiliation}\KeywordTok{:}\AttributeTok{  }
+\AttributeTok{  }\KeywordTok{{-}}\AttributeTok{ }\FunctionTok{num}\KeywordTok{:}\AttributeTok{ 1,..., n for each affiliation}
+\AttributeTok{    }\FunctionTok{address}\KeywordTok{:}\AttributeTok{ required}
+\AttributeTok{    }\FunctionTok{email}\KeywordTok{:}\AttributeTok{ required}
+\FunctionTok{authorcitation}\KeywordTok{: }\CharTok{|}
+\NormalTok{  Lastname, F.}
+\FunctionTok{correspondence}\KeywordTok{: }\CharTok{|}
+\NormalTok{  email@email.com; Tel.: +XX{-}000{-}00{-}0000.}
+\FunctionTok{journal}\KeywordTok{:}\AttributeTok{ notspecified}
+\FunctionTok{type}\KeywordTok{:}\AttributeTok{ article}
+\FunctionTok{status}\KeywordTok{:}\AttributeTok{ submit}
+\end{Highlighting}
+\end{Shaded}
+
+Journal options are in Table \ref{tab:mdpinames}. The \texttt{status}
+variable should generally not be changed by authors. The \texttt{type}
+variable describes the type of of submission and defaults to
+\texttt{article} but can be replaced with any of the ones in Table
+\ref{tab:mdpitype}
+
+\begin{table}
+
+\caption{\label{tab:mdpitype}MDPI article types.}
+\centering
+\begin{tabular}[t]{lll}
+\toprule
+abstract & entry & retraction\\
+addendum & expressionofconcern & review\\
+article & extendedabstract & perspective\\
+book & datadescriptor & protocol\\
+bookreview & editorial & shortnote\\
+\addlinespace
+briefreport & essay & studyprotocol\\
+casereport & erratum & systematicreview\\
+comment & hypothesis & supfile\\
+commentary & interestingimage & technicalnote\\
+communication & obituary & viewpoint\\
+\addlinespace
+conferenceproceedings & opinion & guidelines\\
+correction & projectreport & registeredreport\\
+conferencereport & reply & tutorial\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Journal Specific YAML
+variables}\label{journal-specific-yaml-variables}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# for journal Diversity,}
+\CommentTok{\# add the Life Science Identifier using:}
+\FunctionTok{lsid}\KeywordTok{:}\AttributeTok{ http://zoobank.org/urn:lsid:zoobank.org:act:nnnn}
+
+
+\CommentTok{\# for journal Applied Sciences}
+\CommentTok{\# add featured application}
+\FunctionTok{featuredapplication}\KeywordTok{: }\CharTok{|}
+\NormalTok{  Authors are encouraged to provide a concise }
+\NormalTok{  description of the specific application or }
+\NormalTok{  a potential application of the work. This }
+\NormalTok{  section is not mandatory.}
+
+\CommentTok{\# for the journal Data}
+\CommentTok{\# add dataset doi and license}
+\FunctionTok{dataset}\KeywordTok{:}\AttributeTok{ https://doi.org/10.1000/182}
+\FunctionTok{datasetlicense}\KeywordTok{:}\AttributeTok{ CC{-}BY{-}4.0}
+
+\CommentTok{\# for the journal Toxins}
+\CommentTok{\# add key contributions}
+\FunctionTok{keycontributions}\KeywordTok{: }\CharTok{|}
+\NormalTok{  The breakthroughs or highlights of the manuscript. }
+\NormalTok{  Authors can write one or two sentences to describe }
+\NormalTok{  the most important part of the paper.}
+
+\CommentTok{\# for the journal Encyclopedia}
+\FunctionTok{encyclopediadef}\KeywordTok{: }\CharTok{|}
+\NormalTok{  For entry manuscripts only: please provide a brief overview}
+\NormalTok{  of the entry title instead of an abstract.}
+\FunctionTok{entrylink}\KeywordTok{:}\AttributeTok{ The Link to this entry published on the encyclopedia platform.}
+
+\CommentTok{\# for the journal Advances in Respiratory Medicine}
+\CommentTok{\# add highlights}
+\FunctionTok{addhighlights}\KeywordTok{: }\CharTok{|}
+\NormalTok{  This is an obligatory section in “Advances in Respiratory Medicine”, }
+\NormalTok{  whose goal is to increase the discoverability and readability of the}
+\NormalTok{  article via search engines and other scholars. Highlights should not }
+\NormalTok{  be a copy of the abstract, but a simple text allowing the reader to }
+\NormalTok{  quickly and simplified find out what the article is about and what can }
+\NormalTok{  be cited from it. Each of these parts should be devoted up to 2\textasciitilde{}bullet }
+\NormalTok{  points.}
+\end{Highlighting}
+\end{Shaded}
+
+\startlandscape
+
+\begin{longtable}[t]{llllllll}
+\caption{\label{tab:mdpinames}MDPI journal names.}\\
+\toprule
+atmosphere & coatings & engproc & hospitals & jsan & mti & powders & stresses\\
+atoms & colloids & entomology & humanities & jtaer & muscles & preprints & surfaces\\
+audiolres & colorants & entropy & humans & jvd & nanoenergyadv & proceedings & surgeries\\
+automation & commodities & environments & hydrobiology & jzbg & nanomanufacturing & processes & suschem\\
+axioms & compounds & environsciproc & hydrogen & kidneydial & nanomaterials & prosthesis & sustainability\\
+\addlinespace
+bacteria & computation & epidemiologia & hydrology & kinasesphosphatases & ncrna & proteomes & symmetry\\
+batteries & computers & epigenomes & hygiene & knowledge & ndt & psf & synbio\\
+bdcc & condensedmatter & est & idr & land & network & psych & systems\\
+behavsci & conservation & fermentation & ijerph & languages & neuroglia & psychiatryint & targets\\
+beverages & constrmater & fibers & ijfs & laws & neurolint & psychoactives & taxonomy\\
+\addlinespace
+biochem & cosmetics & fintech & ijgi & life & neurosci & publications & technologies\\
+bioengineering & covid & fire & ijms & liquids & nitrogen & quantumrep & telecom\\
+biologics & crops & fishes & ijns & literature & notspecified & quaternary & test\\
+biology & cryptography & fluids & ijpb & livers & nri & qubs & textiles\\
+biomass & crystals & foods & ijtm & logics & nursrep & radiation & thalassrep\\
+\addlinespace
+biomechanics & csmf & forecasting & ijtpp & logistics & nutraceuticals & reactions & thermo\\
+biomed & ctn & forensicsci & ime & lubricants & nutrients & receptors & tomography\\
+biomedicines & curroncol & forests & immuno & lymphatics & obesities & recycling & tourismhosp\\
+biomedinformatics & cyber & foundations & informatics & machines & oceans & regeneration & toxics\\
+biomimetics & dairy & fractalfract & information & macromol & ohbm & religions & toxins\\
+\addlinespace
+biomolecules & data & fuels & infrastructures & magnetism & onco & remotesensing & transplantology\\
+biophysica & ddc & future & inorganics & magnetochemistry & oncopathology & reports & transportation\\
+biosensors & dentistry & futureinternet & insects & make & optics & reprodmed & traumacare\\
+biotech & dermato & futurepharmacol & instruments & marinedrugs & oral & resources & traumas\\
+birds & dermatopathology & futurephys & inventions & materials & organics & rheumato & tropicalmed\\
+\addlinespace
+bloods & designs & futuretransp & iot & materproc & organoids & risks & universe\\
+blsf & devices & galaxies & j & mathematics & osteology & robotics & urbansci\\
+brainsci & diabetology & games & jal & mca & oxygen & ruminants & uro\\
+breath & diagnostics & gases & jcdd & measurements & parasites & safety & vaccines\\
+buildings & dietetics & gastroent & jcm & medicina & parasitologia & sci & vehicles\\
+\addlinespace
+businesses & digital & gastrointestdisord & jcp & medicines & particles & scipharm & venereology\\
+cancers & disabilities & gels & jcs & medsci & pathogens & sclerosis & vetsci\\
+carbon & diseases & genealogy & jcto & membranes & pathophysiology & seeds & vibration\\
+cardiogenetics & diversity & genes & jdb & merits & pediatrrep & sensors & virtualworlds\\
+catalysts & dna & geographies & jeta & metabolites & pharmaceuticals & separations & viruses\\
+\addlinespace
+cells & drones & geohazards & jfb & metals & pharmaceutics & sexes & vision\\
+ceramics & dynamics & geomatics & jfmk & meteorology & pharmacoepidemiology & signals & waste\\
+challenges & earth & geosciences & jimaging & methane & pharmacy & sinusitis & water\\
+chemengineering & ebj & geotechnics & jintelligence & metrology & philosophies & skins & wem\\
+chemistry & ecologies & geriatrics & jlpea & micro & photochem & smartcities & wevj\\
+\addlinespace
+chemosensors & econometrics & grasses & jmmp & microarrays & photonics & sna & wind\\
+chemproc & economies & gucdd & jmp & microbiolres & phycology & societies & women\\
+children & education & hazardousmatters & jmse & micromachines & physchem & socsci & world\\
+chips & ejihpe & healthcare & jne & microorganisms & physics & software & youth\\
+cimb & electricity & hearts & jnt & microplastics & physiologia & soilsystems & zoonoticdis\\
+\addlinespace
+civileng & electrochem & hemato & jof & minerals & plants & solar & \\
+cleantechnol & electronicmat & hematolrep & joitmc & mining & plasma & solids & \\
+climate & electronics & heritage & jor & modelling & platforms & spectroscj & \\
+clinpract & encyclopedia & higheredu & journalmedia & molbank & pollutants & sports & \\
+clockssleep & endocrines & highthroughput & jox & molecules & polymers & standards & \\
+\addlinespace
+cmd & energies & histories & jpm & mps & polysaccharides & stats & \\
+coasts & eng & horticulturae & jrfm & msf & poultry & std & \\
+\bottomrule
+\end{longtable}
+\finishlandscape
+
+\section{Introduction}\label{introduction-1}
+
+The introduction should briefly place the study in a broad context and
+highlight why it is important. It should define the purpose of the work
+and its significance. The current state of the research field should be
+reviewed carefully and key publications cited. Please highlight
+controversial and diverging hypotheses when necessary. Finally, briefly
+mention the main aim of the work and highlight the principal
+conclusions. As far as possible, please keep the introduction
+comprehensible to scientists outside your particular field of research.
+Citing a journal paper
+\citep{bertrand-krajewski_distribution_1998, leutnant_stormwater_2016}.
+And now citing a book reference \citet{gujer_systems_2008}. Some MDPI
+journals use Chicago and others use APA, this template should choose the
+correct citation format for you once you specify the journal in the YAML
+header.
+
+To use endnotes, change \texttt{endnotes:\ true} in the YAML header,
+then use \texttt{\textbackslash{}endnote\{This\ is\ an\ endnote.\}}.
+
+\section{Materials and Methods}\label{materials-and-methods-1}
+
+Materials and Methods should be described with sufficient details to
+allow others to replicate and build on published results. Please note
+that publication of your manuscript implicates that you must make all
+materials, data, computer code, and protocols associated with the
+publication available to readers. Please disclose at the submission
+stage any restrictions on the availability of materials or information.
+New methods and protocols should be described in detail while
+well-established methods can be briefly described and appropriately
+cited.
+
+Research manuscripts reporting large datasets that are deposited in a
+publicly available database should specify where the data have been
+deposited and provide the relevant accession numbers. If the accession
+numbers have not yet been obtained at the time of submission, please
+state that they will be provided during review. They must be provided
+prior to publication.
+
+Interventionary studies involving animals or humans, and other studies
+require ethical approval must list the authority that provided approval
+and the corresponding ethical approval code.
+
+\section{Results}\label{results-1}
+
+This section may be divided by subheadings. It should provide a concise
+and precise description of the experimental results, their
+interpretation as well as the experimental conclusions that can be
+drawn.
+
+\subsection{Subsection Heading Here}\label{subsection-heading-here}
+
+Subsection text here.
+
+\subsubsection{Subsubsection Heading
+Here}\label{subsubsection-heading-here}
+
+Bulleted lists look like this:
+
+\begin{itemize}
+\tightlist
+\item
+  First bullet
+\item
+  Second bullet
+\item
+  Third bullet
+\end{itemize}
+
+Numbered lists can be added as follows:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  First item
+\item
+  Second item
+\item
+  Third item
+\end{enumerate}
+
+The text continues here.
+
+\subsection{Figures, Tables and
+Schemes}\label{figures-tables-and-schemes}
+
+All figures and tables should be cited in the main text as Figure
+\ref{fig:fig1}, \ref{tab:tab1}, etc. To get cross-reference to figure
+generated by R chunks include the
+\texttt{\textbackslash{}\textbackslash{}label\{\}} tag in the
+\texttt{fig.cap} attribute of the R chunk:
+
+When making tables using \texttt{kable}, it is suggested to use the
+\texttt{format="latex"} and \texttt{tabl.envir="table"} arguments to
+ensure table numbering and compatibility with the mdpi document class.
+
+\begin{table}[H]
+
+\caption{\label{tab:tab1}This is a table caption. Tables should be placed in the 
+             main text near to the first time they are~cited.}
+\begin{tabular}[t]{lccc}
+\toprule
+  & mpg & cyl & disp\\
+\midrule
+Mazda RX4 & 21.0 & 6 & 160\\
+Mazda RX4 Wag & 21.0 & 6 & 160\\
+Datsun 710 & 22.8 & 4 & 108\\
+Hornet 4 Drive & 21.4 & 6 & 258\\
+Hornet Sportabout & 18.7 & 8 & 360\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+For a very wide table, landscape layouts are allowed.
+
+\begin{table}[H]
+
+\caption{\label{tab:tab2}This is a very wide table}
+\begin{tabular}[t]{cccc}
+\toprule
+Title.1 & Title.2 & Title.3 & Title.4\\
+\midrule
+Entry 1 & Data & Data & This cell has some longer content that runs over
+                               two lines\\
+Entry 2 & Data & Data & Data\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\finishlandscape
+
+\subsection{Formatting of Mathematical
+Components}\label{formatting-of-mathematical-components}
+
+This is an example of an equation:
+
+\[
+a = 1.
+\]
+
+If you want numbered equations use Latex and wrap in the equation
+environment:
+
+\begin{equation}
+a = 1,
+\end{equation}
+
+the text following an equation need not be a new paragraph. Please
+punctuate equations as regular text.
+
+This is the example 2 of equation:
+
+\begin{adjustwidth}{-\extralength}{0cm}
+\begin{equation}
+a = b + c + d + e + f + g + h + i + j + k + l + m + n + o + p + q + r + s + t + 
+u + v + w + x + y + z
+\end{equation}
+\end{adjustwidth}
+
+Theorem-type environments (including propositions, lemmas, corollaries
+etc.) can be formatted as follows:
+
+Example of a theorem:
+
+\begin{Theorem}
+Example text of a theorem
+
+\end{Theorem}
+
+The text continues here. Proofs must be formatted as follows:
+
+Example of a proof:
+
+\begin{proof}[Proof of Theorem1]
+Text of the proof. Note that the phrase ``of Theorem 1'\,' is optional
+if it is clear which theorem is being referred to.
+
+\end{proof}
+
+The text continues here.
+
+\section{Discussion}\label{discussion-1}
+
+Authors should discuss the results and how they can be interpreted in
+perspective of previous studies and of the working hypotheses. The
+findings and their implications should be discussed in the broadest
+context possible. Future research directions may also be highlighted.
+
+\section{Conclusion}\label{conclusion}
+
+This section is not mandatory, but can be added to the manuscript if the
+discussion is unusually long or complex.
+
+\section{Patents}\label{patents}
+
+This section is not mandatory, but may be added if there are patents
+resulting from the work reported in this manuscript.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\vspace{6pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% optional
+
+% Only for the journal Methods and Protocols:
+% If you wish to submit a video article, please do so with any other supplementary material.
+% \supplementary{The following supporting information can be downloaded at: \linksupplementary{s1}, Figure S1: title; Table S1: title; Video S1: title. A supporting video article is available at doi: link.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\authorcontributions{For research articles with several authors, a short
+paragraph specifying their individual contributions must be provided.
+The following statements should be used ``X.X. and Y.Y. conceive and
+designed the experiments; X.X. performed the experiments; X.X. and Y.Y.
+analyzed the data; W.W. contributed reagents/materials/analysis tools;
+Y.Y. wrote the paper.'\,' Authorship must be limited to those who have
+contributed substantially to the work reported.}
+
+\funding{Please add:
+\texttt{This\ research\ received\ no\ external\ funding\textquotesingle{}\textquotesingle{}\ or}This
+research was funded by NAME OF FUNDER grant number XXX.'\,' and and
+``The APC was funded by XXX'\,'. Check carefully that the details given
+are accurate and use the standard spelling of funding agency names at
+\url{https://search.crossref.org/funding}, any errors may affect your
+future funding.}
+
+\institutionalreview{Ethical review and approval were waived for this
+study due to the nature of the research not involving human subjects or
+animals directly.}
+
+\informedconsent{Not applicable.}
+
+\dataavailability{We encourage all authors of articles published in MDPI
+journals to share their research data. In this section, please provide
+details regarding where data supporting reported results can be found,
+including links to publicly archived datasets analyzed or generated
+during the study. Where no new data were created, or where data is
+unavailable due to privacy or ethical restrictions, a statement is still
+required. Suggested Data Availability Statements are available in
+section ``MDPI Research Data Policies'' at
+\url{https://www.mdpi.com/ethics}.}
+
+\acknowledgments{All sources of funding of the study should be
+disclosed. Please clearly indicate grants that you have received in
+support of your research work. Clearly state if you received funds for
+covering the costs to publish in open access.}
+
+\conflictsofinterest{The authors declare no conflict of interest.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Optional
+
+%% Only for journal Encyclopedia
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Optional
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{adjustwidth}{-\extralength}{0cm}
+
+%\printendnotes[custom] % Un-comment to print a list of endnotes
+
+
+\reftitle{References}
+\bibliography{mybibfile.bib}
+
+% If authors have biography, please use the format below
+%\section*{Short Biography of Authors}
+%\bio
+%{\raisebox{-0.35cm}{\includegraphics[width=3.5cm,height=5.3cm,clip,keepaspectratio]{Definitions/author1.pdf}}}
+%{\textbf{Firstname Lastname} Biography of first author}
+%
+%\bio
+%{\raisebox{-0.35cm}{\includegraphics[width=3.5cm,height=5.3cm,clip,keepaspectratio]{Definitions/author2.jpg}}}
+%{\textbf{Firstname Lastname} Biography of second author}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% for journal Sci
+%\reviewreports{\\
+%Reviewer 1 comments and authors’ response\\
+%Reviewer 2 comments and authors’ response\\
+%Reviewer 3 comments and authors’ response
+%}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\PublishersNote{}
+\end{adjustwidth}
+
+
+\end{document}
